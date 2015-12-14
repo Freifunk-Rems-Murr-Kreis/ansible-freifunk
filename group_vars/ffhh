@@ -1,0 +1,5 @@
+---
+# default config for Freifunk Hamburg
+
+system:
+  hostname: ffhh-macadress

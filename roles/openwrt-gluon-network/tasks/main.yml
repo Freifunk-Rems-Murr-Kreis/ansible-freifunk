@@ -1,0 +1,97 @@
+---
+# tasks file for gluon-network
+- name: apply network loopback uci settings
+  uci: command=set key="network.{{ network_loopback.device }}.{{ item.key }}" value="{{ item.value }}"
+  with_dict:
+    network_loopback.settings
+  notify:
+    - uci commit
+    - reload network
+
+- name: apply network wan6 uci settings
+  uci: command=set key="network.{{ network_wan6.device }}.{{ item.key }}" value="{{ item.value }}"
+  with_dict:
+    network_wan6.settings
+  notify:
+    - uci commit
+    - reload network
+
+- name: apply network wan uci settings
+  uci: command=set key="network.{{ network_wan.device }}.{{ item.key }}" value="{{ item.value }}"
+  with_dict:
+    network_wan.settings
+  notify:
+    - uci commit
+    - reload network
+
+- name: apply network client uci settings
+  uci: command=set key="network.{{ network_client.device }}.{{ item.key }}" value="{{ item.value }}"
+  with_dict:
+    network_client.settings
+  notify:
+    - uci commit
+    - reload network
+
+- name: apply network mesh_wan uci settings
+  uci: command=set key="network.{{ network_mesh_wan.device }}.{{ item.key }}" value="{{ item.value }}"
+  with_dict:
+    network_mesh_wan.settings
+  notify:
+    - uci commit
+    - reload network
+
+- name: apply network mesh_lan uci settings
+  uci: command=set key="network.{{ network_mesh_lan.device }}.{{ item.key }}" value="{{ item.value }}"
+  with_dict:
+    network_mesh_lan.settings
+  notify:
+    - uci commit
+    - reload network
+
+- name: apply network mesh_vpn uci settings
+  uci: command=set key="network.{{ network_mesh_vpn.device }}.{{ item.key }}" value="{{ item.value }}"
+  with_dict:
+    network_mesh_vpn.settings
+  notify:
+    - uci commit
+    - reload network
+
+- name: apply network bat0 uci settings
+  uci: command=set key="network.{{ network_bat0.device }}.{{ item.key }}" value="{{ item.value }}"
+  with_dict:
+    network_bat0.settings
+  notify:
+    - uci commit
+    - reload network
+
+- name: apply network mesh_radio0 uci settings
+  uci: command=set key="network.{{ network_mesh_radio0.device }}.{{ item.key }}" value="{{ item.value }}"
+  with_dict:
+    network_mesh_radio0.settings
+  notify:
+    - uci commit
+    - reload network
+
+- name: apply network local_node_dev uci settings
+  uci: command=set key="network.{{ network_local_node_dev.device }}.{{ item.key }}" value="{{ item.value }}"
+  with_dict:
+    network_local_node_dev.settings
+  notify:
+    - uci commit
+    - reload network
+
+- name: apply network local_node uci settings
+  uci: command=set key="network.{{ network_local_node.device }}.{{ item.key }}" value="{{ item.value }}"
+  with_dict:
+    network_local_node.settings
+  notify:
+    - uci commit
+    - reload network
+
+- name: apply network local_node_route6 uci settings
+  uci: command=set key="network.{{ network_local_node_route6.device }}.{{ item.key }}" value="{{ item.value }}"
+  with_dict:
+    network_local_node_route6.settings
+  notify:
+    - uci commit
+    - reload network

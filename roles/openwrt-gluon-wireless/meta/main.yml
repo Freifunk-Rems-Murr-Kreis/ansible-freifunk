@@ -1,0 +1,15 @@
+---
+galaxy_info:
+  author: Fabian Linzberger, Joachim Ernst
+  description: Wireless management of openwrt based gluon systems (for Freifunk).
+  license: BSD
+  min_ansible_version: 1.7
+  platforms: []
+  # - Openwrt
+  #   versions:
+  #   - 14.07
+  categories:
+    - system
+    - network
+dependencies:
+  - { role: lefant.openwrt-uci }

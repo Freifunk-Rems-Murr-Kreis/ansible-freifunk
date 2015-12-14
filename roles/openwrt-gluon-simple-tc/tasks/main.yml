@@ -1,0 +1,8 @@
+---
+# tasks file for openwrt-gluon-simple-tc
+- name: apply gluon-simple-tc uci settings
+  uci: command=set key="gluon-simple-tc.{{ gluon_simple_tc.device }}.{{ item.key }}" value="{{ item.value }}"
+  with_dict:
+    gluon_simple_tc.settings
+  when: item.key == "limit_ingress" or item.key == "limit_egress" or item.key == "enabled"
+  notify: uci commit

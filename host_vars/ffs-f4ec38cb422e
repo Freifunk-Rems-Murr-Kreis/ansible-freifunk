@@ -1,0 +1,45 @@
+---
+# TP-Link TL-WR1043NDv1
+
+system:
+  hostname: ffs-f4ec38cb422e
+  timezone: CET-1CEST,M3.5.0,M10.5.0/3
+
+gluon_simple_tc:
+  device: mesh_vpn
+  settings:
+    enabled: 1
+    limit_ingress: 6000
+    limit_egress: 400
+
+wireless_radio:
+  device: radio0
+  settings:
+    channel: 11
+
+wireless_wan:
+  device: wan_radio0
+  settings:
+    disabled: 0
+    ssid: someSSID
+    key: secret
+
+network_wan:
+  device: wan
+  settings:
+    ifname: eth0.2
+
+network_client:
+  device: client
+  settings:
+    ifname: bat0
+
+network_mesh_lan:
+  device: mesh_lan
+  settings:
+    ifname: eth0.1
+
+network_bat0:
+  device: bat0
+  settings:
+    macaddr: f4:ec:38:cb:42:2e

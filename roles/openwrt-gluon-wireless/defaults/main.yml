@@ -1,0 +1,39 @@
+---
+# defaults file for freifunk-stuttgart/openwrt-gluon-wireless 
+wireless_radio:
+  device: radio0
+  settings:
+    country: DE
+
+wireless_mesh:
+  device: mesh_radio0
+  settings:
+    disabled: 0
+    mode: adhoc
+    ifname: mesh0
+    network: mesh_radio0
+    device: radio0
+    ssid: 02:04:08:16:32:64
+    bssid: 02:04:08:16:32:64
+    mcast_rate: 12000
+
+wireless_client:
+  device: client_radio0
+  settings:
+    disabled: 0
+    mode: ap
+    ifname: client0
+    network: client
+    device: radio0
+    ssid: Freifunk
+
+wireless_wan:
+  device: wan_radio0
+  settings:
+    disabled: 1
+    mode: ap
+    network: wan
+    device: radio0
+    ssid: Freifunk-psk2
+    encryption: psk2
+    key: Freifunk

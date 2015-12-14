@@ -1,0 +1,12 @@
+---
+- name: configure an openwrt system
+  hosts: openwrt
+  user: root
+  gather_facts: no
+  roles:
+    - lefant.openwrt-system
+    - lefant.openwrt-wireless
+    - lefant.openwrt-firewall
+    - lefant.openwrt-sqm
+    - lefant.openwrt-dnsmasq
+    - lefant.openwrt-ddns

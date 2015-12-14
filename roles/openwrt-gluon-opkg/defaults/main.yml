@@ -1,0 +1,6 @@
+---
+# defaults file for freifunk-stuttgart/openwrt-gluon-opkg
+opkg_installed:
+#- vnstat
+#- usbutils
+#- pciutils

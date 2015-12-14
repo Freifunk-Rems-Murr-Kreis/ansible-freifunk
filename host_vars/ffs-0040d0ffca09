@@ -1,0 +1,41 @@
+---
+# Getac V100 with ath9k
+
+system:
+  hostname: ffs-0040d0ffca09
+  timezone: UTC
+
+opkg_installed:
+- vnstat
+- usbutils
+- pciutils
+- kmod-ath  
+- kmod-ath10k
+- kmod-ath9k 
+- kmod-ath9k-common
+- kmod-mac80211
+- kmod-macvlan
+- wpad-mini
+
+gluon_simple_tc:
+  device: mesh_vpn
+  settings:
+    enabled: 1
+    limit_ingress: 6000
+    limit_egress: 400
+
+wireless_radio:
+  device: radio0
+  settings:
+    channel: 6
+
+wireless_wan:
+  device: wan_radio0
+  settings:
+    disabled: 0
+    mode: ap
+    network: wan
+    device: radio0
+    ssid: Freifunk-encrypted
+    encryption: psk2
+    key: Freifunk

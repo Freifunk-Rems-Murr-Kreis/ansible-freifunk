@@ -1,0 +1,100 @@
+---
+# defaults file for freifunk-stuttgart/openwrt-gluon-network 
+network_loopback:
+  device: loopback
+  settings:
+    ifname: lo
+    proto: static
+    ipaddr: 127.0.0.1
+    netmask: 255.0.0.0
+
+network_wan6:
+  device: wan6
+  settings:
+    ifname: br-wan
+    proto: dhcpv6
+    ip6table: 1
+    peerdns: 0
+
+network_wan:
+  device: wan
+  settings:
+    ifname: eth0
+    type: bridge
+    igmp_snooping: 0
+    proto: dhcp
+    peerdns: 0
+    auto: 1
+
+network_client:
+  device: client
+  settings:
+    ifname: "bat0"
+    type: bridge
+    igmp_snooping: 0
+    proto: dhcpv6
+    reqprefix: 'no'
+    ip6table: 1
+    peerdns: 1
+
+network_mesh_wan:
+  device: mesh_wan
+  settings:
+    ifname: br-wan
+    mesh: bat0
+    proto: batadv
+    auto: 1
+
+network_mesh_lan:
+  device: mesh_lan
+  settings:
+    ifname: eth1
+    mesh: bat0
+    proto: batadv
+    auto: 1
+
+network_mesh_vpn:
+  device: mesh_vpn
+  settings:
+    ifname: mesh-vpn
+    mesh_no_rebroadcast: 1
+    mesh: bat0
+    proto: batadv
+
+network_bat0:
+  device: bat0
+  settings:
+    ifname: bat0
+    proto: none
+
+network_mesh_radio0:
+  device: mesh_radio0
+  settings:
+    mesh: bat0
+    proto: batadv
+    mtu: 1532
+
+network_local_node_dev:
+  device: local_node_dev
+  settings:
+    macaddr: 02:00:0a:25:00:01
+    ifname: br-client
+    name: local-node
+    type: macvlan
+
+network_local_node:
+  device: local_node
+  settings:
+    ifname: local-node
+    ipaddr: 172.21.24.254
+    ip6addr: fd21:b4dc:4b1e::1/128
+    netmask: 255.255.192.0
+    proto: static
+
+network_local_node_route6:
+  device: local_node_route6
+  settings:
+    target: fd21:b4dc:4b1e::/64
+    gateway: '::'
+    interface: client
+

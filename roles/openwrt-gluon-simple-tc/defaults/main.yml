@@ -1,0 +1,8 @@
+---
+# defaults file for openwrt-gluon-simple-tc
+gluon_simple_tc:
+  device: mesh_vpn
+  settings:
+    enabled: 0
+    limit_ingress: 6000
+    limit_egress: 400

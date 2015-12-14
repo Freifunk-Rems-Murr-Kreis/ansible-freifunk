@@ -1,0 +1,11 @@
+---
+- name: configure an openwrt-gluon system
+  hosts: ffs
+  user: root
+  gather_facts: no
+  roles:
+    - lefant.openwrt-system
+    - openwrt-gluon-simple-tc
+    - openwrt-gluon-wireless
+    - openwrt-gluon-network
+    - openwrt-gluon-opkg

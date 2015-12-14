@@ -1,0 +1,33 @@
+---
+# tasks file for gluon-wireless
+- name: apply wireless radio uci settings
+  uci: command=set key="wireless.{{ wireless_radio.device }}.{{ item.key }}" value="{{ item.value }}"
+  with_dict:
+    wireless_radio.settings
+  notify:
+    - uci commit
+    - reload wifi
+
+- name: apply wireless mesh settings
+  uci: command=set key="wireless.{{ wireless_mesh.device }}.{{ item.key }}" value="{{ item.value }}"
+  with_dict:
+    wireless_mesh.settings
+  notify:
+    - uci commit
+    - reload wifi
+
+- name: apply wireless client uci settings
+  uci: command=set key="wireless.{{ wireless_client.device }}.{{ item.key }}" value="{{ item.value }}"
+  with_dict:
+    wireless_client.settings
+  notify:
+    - uci commit
+    - reload wifi
+
+- name: apply wireless wan uci settings
+  uci: command=set key="wireless.{{ wireless_wan.device }}.{{ item.key }}" value="{{ item.value }}"
+  with_dict:
+    wireless_wan.settings
+  notify:
+    - uci commit
+    - reload wifi

@@ -1,0 +1,9 @@
+---
+# tasks file for openwrt-gluon-opkg
+- name: update opkg cache
+  raw: opkg update
+
+- name: install opkg packages
+  raw: opkg install {{ item }}
+  with_flattened: 
+  - opkg_installed

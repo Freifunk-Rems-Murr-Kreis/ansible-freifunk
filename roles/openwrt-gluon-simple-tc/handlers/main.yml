@@ -1,0 +1,4 @@
+---
+# handlers file for openwrt-gluon-simple-tc
+- name: reload system
+  raw: /etc/init.d/system reload
